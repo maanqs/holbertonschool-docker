@@ -1,0 +1,5 @@
+instruction,status,reason
+FROM alpine,cached,l'image alpine était déjà présente en local et rien n'a changé
+COPY message.txt /message.txt,cached,l'instruction et le contenu de message.txt n'ont pas changé
+RUN apk add --no-cache curl wget,rebuilt,l'instruction a été modifiée (wget ajouté) donc le cache est invalidé
+CMD,rebuilt,vient après l'instruction modifiée donc elle est refaite
